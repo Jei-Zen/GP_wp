@@ -1,0 +1,21 @@
+
+
+function calculate_shipping($package = array()){
+  //Jei 的淫巧,超取免運
+  //$package["contents_cost"] //商品總金額                
+  //$package["contents"] //購買的商品清單
+
+  if($package["contents_cost"] > 1000){
+    $shipping_total = 0;
+  }else{
+    $shipping_total = $fee;
+  }
+ 
+  $rate = array(
+    'id' => $this->id,
+    'label' => $this->title,
+    'cost' => $shipping_total
+  );
+
+  $this->add_rate($rate);
+}
